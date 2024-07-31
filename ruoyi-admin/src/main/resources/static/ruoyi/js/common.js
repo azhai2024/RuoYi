@@ -309,6 +309,17 @@ function refreshTab() {
 	target.attr('src', url).ready();
 }
 
+// 执行 iframe 中的 search
+function clickTabSearch(dataid) {
+    var topWindow = $(window.parent.document);
+    var target = $('.RuoYi_iframe[data-id="' + dataid + '"]', topWindow);
+    target.each(function () {
+        var iframeBody = $(this).contents().find('body');
+        iframeBody.find(".select-list .fa-search").parent().click();
+    });
+}
+
+
 // 滚动到指定选项卡
 function scrollToTab(element) {
     var topWindow = $(window.parent.document);
